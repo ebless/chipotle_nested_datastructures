@@ -23,35 +23,54 @@ my_order = {}
 	#you are in line at chipotle and what to know what different styles they have
 	#Display all the options available for style 
 
-
+main[:style].each do |i|
+	puts i
+end
 
 #STEP TWO:
 	#Using the empty my_order hash, 
 	#Chose your style from the available options and add a new key value pair to that hash
 
+my_order[:style] = main[:style][0]
 
 #STEP THREE:
 	#Chose what meat you want & add it to your my_order hash
+
+my_order[:meat] = main[:meat][1]
 
 #STEP FOUR:
 	#Chose what rice, bean or veggies you want and it it as a new key value pair to my_order. 
 		#HINT: You may want to chose more than one option, how will you store multiples in your order?
 
+my_order[:rice_bean_veg] = []
+my_order[:rice_bean_veg] << main[:rice_bean_veg][1]
+my_order[:rice_bean_veg] << main[:rice_bean_veg][2]
+my_order[:rice_bean_veg] << main[:rice_bean_veg][4]
+
 #STEP FIVE
 	#Check to see if your favorite topping is included in the available options
 
+puts main[:toppings].include? 'guacamole'
 
 #STEP SIX
 	#Chose at least 3 toppings to add to your order
 
+my_order[:toppings] = []
+my_order[:toppings] << main[:toppings][1]
+my_order[:toppings] << main[:toppings][5]
+my_order[:toppings] << main[:toppings][3]
+
 #STEP SEVEN
 	#Oops! You didn't want one of those toppings! How do you remove the second one you put in there?
 
+my_order[:toppings].delete_at(1)
 
 #STEP EIGHT
 	#Print your hash and see if your order was made correctly! Bon Appetit! 
 
-
+puts ''
+print my_order
+puts ''
 
 
 
@@ -60,9 +79,10 @@ my_order = {}
 		#This will be challenging when it comes to working with your multiple choices for toppings
 
 	#Example: "Can I please have a burrito. For meat, I would like chicken with cilantro-lime white rice and black beans. Then I would like sour cream, cheese and roasted-corn salsa as my toppings. Thank you!"
-
-
-
+puts ''
+puts 'Could I please have a ' + my_order[:style] + ' with ' + my_order[:meat] + ', ' + my_order[:rice_bean_veg][0] + ' and ' + my_order[:rice_bean_veg][1] + ', and also ' + my_order[:toppings][0] + ' and ' + my_order[:toppings][1] + '.'
+puts 'Thank you!'
+puts ''
 #### BONUS 2 #####
 	#Make this into a command line application that allows the user to input their order 
 
